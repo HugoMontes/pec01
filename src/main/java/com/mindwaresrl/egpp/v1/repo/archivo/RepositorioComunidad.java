@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import com.mindwaresrl.egpp.v1.core.Comunidad;
+import com.mindwaresrl.egpp.v1.repo.Repositorio;
 
 import static com.mindwaresrl.egpp.v1.core.Comunidad.*;
 
@@ -40,13 +41,13 @@ public class RepositorioComunidad extends RepositorioAbstracto<Comunidad> {
 		return lineasSeccion;
 	}
 	
-	//TODO Este método recibe una linea de la seccion #Comunidad del archivo comunidad.txt 
+	//DONE Este método recibe una linea de la seccion #Comunidad del archivo comunidad.txt 
 	//Deberá completarlo para que dada una linea retorne una instancia de la clase Comunidad. 
 	//Ej: "01;Trebol;Temporal"
 	@Override
 	Comunidad convertirRegistro(String registro) {
-
-		return new Comunidad("", "", "");
+		String registroArray[] = registro.split(Repositorio.SEPARATOR);
+		return new Comunidad(registroArray[0], registroArray[1], registroArray[2]);
 	}
 
 

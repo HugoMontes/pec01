@@ -8,6 +8,7 @@ import java.util.List;
 import org.apache.commons.lang3.StringUtils;
 
 import com.mindwaresrl.egpp.v1.core.Propietario;
+import com.mindwaresrl.egpp.v1.repo.Repositorio;
 
 import static com.mindwaresrl.egpp.v1.core.Propietario.*;
 
@@ -40,13 +41,13 @@ public class RepositorioPropietario extends RepositorioAbstracto<Propietario> {
 		
 		return lineasSeccion;
 	}
-	//TODO Este método recibe una linea de la seccion #Propietario del archivo comunidad.txt
+	//DONE Este método recibe una linea de la seccion #Propietario del archivo comunidad.txt
 	//Deberá completarlo para que dada una linea retorne un objeto de la clase Propietario
 	//P/Ej: 01;Jorge Salas;Sopocachi (La Paz);jsalas@dominio.com
 	@Override
 	Propietario convertirRegistro(String registro) {
-		
-		return new Propietario(" ", " ", " ", " ");
+		String registroArray[] = registro.split(Repositorio.SEPARATOR);
+		return new Propietario(registroArray[0], registroArray[1], registroArray[2], registroArray[3]);
 	}
 	
 	@Override

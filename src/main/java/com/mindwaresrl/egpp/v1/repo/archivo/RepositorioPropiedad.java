@@ -100,31 +100,31 @@ public class RepositorioPropiedad extends RepositorioAbstracto<Propiedad> {
 		return "comunidad.txt";
 	}
 		
-	//TODO Este metodo recibe un arreglo con los campos de un departamento
+	//DONE Este metodo recibe un arreglo con los campos de un departamento
 //	incluyendo una referencia al propietario y a los porcentajes de la zona de reparto
 	//Deberá completarlo para que devuelva una instancia de tipo propiedad.
 	//P/ej. D;1-A;90;07;E-9,C-12;VH;2
 	private Propiedad crearDepartamento(String[] valores) {
-		
-		return null;
+		return new Departamento(valores[1], Double.parseDouble(valores[2]), this.repositorioPropietario.recuperar(valores[3]),
+				convertirZonaReparto(valores[4]), TipoVivienda.convert(valores[5]), Integer.parseInt(valores[6]));
 	}
 	
-	//TODO Este metodo recibe un arreglo con los campos de un local comercial
+	//DONE Este metodo recibe un arreglo con los campos de un local comercial
 //	incluyendo una referencia al propietario y a los porcentajes de la zona de reparto
 	//Deberá completarlo para que devuelva una instancia de tipo propiedad.
 	//P/ej. L;0-A;80;04;E-8;Banco Mundial;Banca
 	private Propiedad crearLocalComercial(String[] valores) {
-		
-		return null;
+		return new LocalComercial(valores[1], Double.parseDouble(valores[2]), this.repositorioPropietario.recuperar(valores[3]),
+				convertirZonaReparto(valores[4]), valores[5], valores[6]);
 	}	
 	
-	//TODO Este metodo recibe un arreglo con los campos de plaza garaje 
+	//DONE Este metodo recibe un arreglo con los campos de plaza garaje 
 //	incluyendo una referencia al propietario y a los porcentajes de la zona de reparto
 	//Deberá completarlo para que devuelva una instancia de tipo propiedad.
 	//P/ej. G;P01;12;14;G-10;A;N
 	private Propiedad crearPlazaGaraje(String[] valores) {
-				
-		return null;
+		return new PlazaGaraje(valores[1], Double.parseDouble(valores[2]), this.repositorioPropietario.recuperar(valores[3]),
+				convertirZonaReparto(valores[4]), TipoGaraje.convert(valores[5]), valores[6] == "S" ? true : false);
 	}		
 	
 
